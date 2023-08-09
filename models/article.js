@@ -6,10 +6,7 @@ const ArticleSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "user",
   },
-  source: {
-    id: String,
-    name: String,
-  },
+  source: String,
   author: String,
   title: {
     type: String,

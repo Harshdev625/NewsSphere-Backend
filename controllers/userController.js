@@ -27,7 +27,7 @@ const createUser = async (req, res) => {
       password: await bcrypt.hash(req.body.password, saltRounds),
       email: req.body.email,
     });
-    res.status(201).json({ message: "User created successfully" });
+    res.json(user);
   } catch (error) {
     console.log(error.message);
     res.status(500).send("Internal Server Error.");
@@ -57,7 +57,7 @@ const getUser = async (req, res) => {
         error: "Please try to login with correct credentials",
       });
     }
-    res.status(200).json({ message: "Login successful" });
+    res.json(user);
   } catch (error) {
     console.log(error.message);
     res.status(500).send("Internal Server Error.");
